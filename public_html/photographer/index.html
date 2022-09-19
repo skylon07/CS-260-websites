@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css" type="text/css" />
+        <link rel="stylesheet" href="index.css" type="text/css" />
+        <title>Amy Welter</title>
+    </head>
+    <body>
+        <div id="navbarContainer"></div>
+        <div id="mainContent">
+            <div id="showcaseGrid">
+                <h1 id="nature">Nature</h1>
+                <h1 id="spacer1">•</h1>
+                <h1 id="weddings">Weddings</h1>
+                <h1 id="spacer2">•</h1>
+                <h1 id="beauty">Beauty</h1>
+                <img id="natureImg" src="photos/landscape1.jpg">
+                <img id="weddingsImg" src="photos/wedding1.jpg">
+                <img id="beautyImg" src="photos/water1.jpg">
+            </div>
+            
+            <h1 id="photographyStart">Photography</h1>
+            <p>
+                is the art of capturing an image and making a memory of it.
+                And I want to make sure you <em>never</em> forget any of your special moments.
+                Whether it's a stroll in nature, a special someone, or something else beautiful,
+                I'd love to be the one to take the photo for you!
+                This world is full of beauty, and life is too short to pass any opportunity
+                to record your special moment.
+                Let's make today about <em>YOU!</em>
+            </p>
+            <hr id="photographyEnd">
+            
+            <div id="bottomGrid">
+                <a id="aboutContainer" class="bottomContainer" href="about.html">
+                    <h1 id="about">About</h1>
+                    <img id="aboutImg" src="photos/photographer.jpg">
+                </a>
+                <a id="reviewsContainer" class="bottomContainer" href="reviews.html">
+                    <h1 id="reviews">Reviews</h1>
+                    <img id="reviewsImg" src="photos/wedding2.jpg">
+                </a>
+            </div>
+        </div>
+        <script src="loadHtmlJs.js"></script>
+        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/fitty.min.js"></script>
+    	<script>
+        	!(async () => {
+        	    try {
+        	        await loadHtmlJs("navbar", "navbarContainer")
+        	        navbar.home.classList.add("active")
+        	    } catch (e) {
+        	        alert("index.html -- " + e)
+        	    }
+        	})()
+    	</script>
+	</body>
+</html>

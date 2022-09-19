@@ -1,0 +1,65 @@
+:root {
+    --color-rose-red: rgb(210, 83, 96);
+    --color-grass-green: rgb(95, 156, 34);
+    --color-moss-green: rgb(30, 80, 20);
+    --color-coral-blue: rgb(89, 127, 174);
+    --color-deep-gray: rgb(22, 25, 29);
+    --color-space-gray: rgb(50, 56, 70);
+    --color-light-gray: rgb(100, 110, 120);
+    --color-soft-white: rgb(220, 220, 220);
+}
+
+.fancy {
+    font-style: italic;
+    font-weight: lighter;
+}
+
+.navbar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-space-gray);
+}
+body {
+    padding-top: 20px;
+}
+
+.navbar li {
+    display: block;
+    border-right: 1px solid var(--color-light-gray);
+}
+
+.navbar li:hover:not(.filler) {
+    background-color: var(--color-deep-gray);
+}
+
+.navbar .active, .navbar .active:hover:not(.filler) {
+    background-color: var(--color-coral-blue);
+}
+
+.navbar .filler {
+    flex-grow: 1;
+    border-right: none;
+}
+
+.navbar .right {
+    margin-left: auto;
+}
+
+.navbar li:last-child {
+    border-right: none;
+}
+
+.navbar li a {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: large;
+    color: var(--color-soft-white);
+}

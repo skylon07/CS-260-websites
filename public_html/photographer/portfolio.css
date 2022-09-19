@@ -1,0 +1,59 @@
+#portfolioGrid {
+    margin-bottom: -55%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    grid-template-rows: repeat(2, 12%) 20% repeat(2, 12%);
+    align-items: center;
+}
+
+#portfolioGrid img {
+    width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+#img1 {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+#img2 {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+#img3 {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+#img4 {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+#img5 {
+    grid-column: 1 / 3;
+    grid-row: 3;
+}
+
+#img6 {
+    grid-column: 1;
+    grid-row: 4;
+}
+
+#img7 {
+    grid-column: 2;
+    grid-row: 4;
+}
+
+#img8 {
+    grid-column: 1;
+    grid-row: 5;
+}
+
+#img9 {
+    grid-column: 2;
+    grid-row: 5;
+}

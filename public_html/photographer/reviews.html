@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css" type="text/css" />
+        <link rel="stylesheet" href="reviews.css" type="text/css" />
+        <title>Amy Welter</title>
+    </head>
+    <body>
+        <div id="navbarContainer"></div>
+        <div id="mainContent">
+            <h1 id="fewWords">
+                A few words from my clients
+                <hr>
+            </h1>
+            <h2>John McAllister</h2>
+            <blockquote>
+                I had Amy do our wedding pictures, and they came out great!
+                We loved how the colors shine and really show how happy we
+                were during our special time!
+            </blockquote>
+            <br>
+            <h2>Glenda Garcia</h2>
+            <blockquote>
+                My husband and I wanted to take special pictures for our 10th
+                anniversarry, and Amy was able to take gorgeous pictures of us
+                in the mountains near our home. Thank you Amy for doing such
+                a wonderful job!
+            </blockquote>
+            <br>
+            <h2>Evan Brown</h2>
+            <blockquote>
+                I wanted to take special father-son pictures with my dad, and
+                Amy was so willing to help us. She made the process fun and easy,
+                and we love how our pictures turned out. She does very talented work!
+            </blockquote>
+            <br>
+            <h2>Hugo Bartista</h2>
+            <blockquote>
+                Amy helped me do my engagement pictures. She was very talented and
+                did many pictures for us and they all turned out amazing! We love the
+                work that she does and the care she put in to making sure we were
+                happy with our results. Amy is amazing and we would want her for
+                all our special occasions!
+            </blockquote>
+        </div>
+        <script src="loadHtmlJs.js"></script>
+        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/fitty.min.js"></script>
+    	<script>
+        	!(async () => {
+        	    try {
+        	        await loadHtmlJs("navbar", "navbarContainer")
+        	        navbar.reviews.classList.add("active")
+        	    } catch (e) {
+        	        alert("index.html -- " + e)
+        	    }
+        	})()
+    	</script>
+	</body>
+</html>

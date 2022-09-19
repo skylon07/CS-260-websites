@@ -1,0 +1,9 @@
+#fewWords {
+    margin-bottom: 15%;
+}
+
+blockquote {
+    border-left: 10px solid rgb(var(--color-neon-blue));
+    padding-left: 40px;
+    font-size: 120%;
+}

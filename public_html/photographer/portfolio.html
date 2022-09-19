@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css" type="text/css" />
+        <link rel="stylesheet" href="portfolio.css" type="text/css" />
+        <title>Amy Welter</title>
+    </head>
+    <body>
+        <div id="navbarContainer"></div>
+        <div id="mainContent">
+            <h1>Portfolio</h1>
+            <div id="portfolioGrid">
+                <img id="img1" src="photos/landscape2.jpg">
+                <img id="img2" src="photos/sky1.jpg">
+                <img id="img3" src="photos/landscape3.jpg">
+                <img id="img4" src="photos/water1.jpg">
+                <img id="img5" src="photos/wedding2.jpg">
+                <img id="img6" src="photos/flower1.jpg">
+                <img id="img7" src="photos/bird1.jpg">
+                <img id="img8" src="photos/landscape4.jpg">
+                <img id="img9" src="photos/water2.jpg">
+            </div>
+            <p>
+                "There are a limited number of special moments in your life.
+                Remember to keep them close."
+                <br>
+                - Taylor Brown 2022
+            </p>
+            <p style="color: rgba(0, 0, 0, 0)">
+                I don't know why but having this text here makes the text above me
+                actually resize correctly, so yeah that's kind of dumb but I'm not
+                sure what else to do about it other than try to hide this element
+                as best as I can lol
+            </p>
+        </div>
+        <script src="loadHtmlJs.js"></script>
+        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/fitty.min.js"></script>
+    	<script>
+        	!(async () => {
+        	    try {
+        	        await loadHtmlJs("navbar", "navbarContainer")
+        	        navbar.portfolio.classList.add("active")
+        	    } catch (e) {
+        	        alert("index.html -- " + e)
+        	    }
+        	})()
+    	</script>
+	</body>
+</html>

@@ -1,0 +1,144 @@
+#photographyStart {
+    margin-top: 50%;
+}
+
+@media (min-width: 400px) {
+    #photographyStart {
+        margin-top: 30%;
+    }
+}
+
+@media (min-width: 800px) {
+    #photographyStart {
+        margin-top: 16%;
+    }
+}
+
+#photographyEnd {
+    margin-bottom: 50%;
+}
+
+@media (min-width: 400px) {
+    #photographyEnd {
+        margin-bottom: 30%;
+    }
+}
+
+@media (min-width: 800px) {
+    #photographyEnd {
+        margin-bottom: 16%;
+    }
+}
+
+#showcaseGrid {
+    margin-bottom: -20%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 3% repeat(3, 1fr) 3% repeat(3, 1fr);
+    gap: 10px;
+    grid-template-rows: 10% 5% 40%;
+    align-items: center;
+}
+
+#showcaseGrid h1 {
+    margin: 0px;
+    text-align: center;
+}
+
+#showcaseGrid img {
+    width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+#showcaseGrid #nature {
+    grid-column: 1 / 4;
+    grid-row: 1;
+}
+
+#showcaseGrid #spacer1 {
+    grid-column: 4;
+    grid-row: 1;
+}
+
+#showcaseGrid #weddings {
+    grid-column: 5 / 8;
+    grid-row: 1;
+}
+
+#showcaseGrid #spacer2 {
+    grid-column: 8;
+    grid-row: 1;
+}
+
+#showcaseGrid #beauty {
+    grid-column: 9 / 12;
+    grid-row: 1;
+}
+
+#showcaseGrid #natureImg {
+    grid-column: 1 / 4;
+    grid-row: 3;
+}
+
+#showcaseGrid #weddingsImg {
+    grid-column: 5 / 8;
+    grid-row: 3;
+}
+
+#showcaseGrid #beautyImg {
+    grid-column: 9 / 12;
+    grid-row: 3;
+}
+
+#bottomGrid {
+    display: grid;
+    height: 50%;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    grid-template-rows: 100%;
+    align-items: center;
+}
+
+#bottomGrid h1 {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    padding-top: 20%;
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+#bottomGrid img {
+    width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+#bottomGrid .bottomContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+#bottomGrid .bottomContainer:hover::after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+#bottomGrid #aboutContainer {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+#bottomGrid #reviewsContainer {
+    grid-column: 2;
+    grid-row: 1;
+}

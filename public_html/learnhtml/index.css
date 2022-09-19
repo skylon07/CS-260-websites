@@ -1,0 +1,17 @@
+h2 {
+    margin: 10px;
+    margin-left: 20px;
+    padding: 15px;
+    width: 100px;
+    background-color: var(--color-moss-green);
+    color: var(--color-grass-green);
+    text-align: center;
+}
+
+#lists {
+    color: var(--color-rose-red);
+}
+
+#elems {
+    color: var(--color-rose-red);
+}

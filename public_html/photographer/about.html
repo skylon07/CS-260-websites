@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css" type="text/css" />
+        <link rel="stylesheet" href="about.css" type="text/css" />
+        <title>Amy Welter</title>
+    </head>
+    <body>
+        <div id="navbarContainer"></div>
+        <div id="mainContent">
+            <img id="amyImg" src="photos/photographer.jpg">
+            <h1>Who am I?</h1>
+            <p>
+                My name is Amy Welter. I've been taking pictures since age 13,
+                and I love being a professional photographer!
+                I love capturing the essence of beauty for everyone to enjoy.
+                And the only thing I love more than taking pictures of nature
+                is taking pictures of <em>you</em>!
+            </p>
+            <p>
+                I graduated from Utah Valley University with a degree in Media Communication,
+                but my photography story starts back in 2009 when I fell in love with
+                taking pictures of the floweres in my backyard.
+                Now I've fallen in love with taking pictures of beauty wherever I can find it!
+            </p>
+            <p>
+                If you are interested in me helping you save your special moments,
+                please get in touch with me. I'd love to capture your moment with you!
+            </p>
+        </div>
+        <script src="loadHtmlJs.js"></script>
+        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/fitty.min.js"></script>
+    	<script>
+        	!(async () => {
+        	    try {
+        	        await loadHtmlJs("navbar", "navbarContainer")
+        	        navbar.about.classList.add("active")
+        	    } catch (e) {
+        	        alert("index.html -- " + e)
+        	    }
+        	})()
+    	</script>
+	</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Lame TicTacToe</title>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body>
+	    <h1 id="welcome">Welcome to Lame TicTacToe!</h1>
+	    <div class="boardsquare">
+    		<div id="board" class="board">
+    		    <!-- board rows generated dynamically -->
+    		</div>
+		</div>
+		<div id="infopanel">
+			<p id="checkedCount">Checked: 0</p>
+			<p id="clickCount">Clicks: 0</p>
+			<p id="randomClick">Rand: 0</p>
+			<p id="time">Time: 0</p>
+		</div>
+		
+		<template id="board_row_template">
+			<div class="row">
+		        <svg class="checkbox" onclick="svgclick(this)" viewBox="0 0 100 100">
+		            <line x1=0 x2=100 y1=0 y2=100 />
+		            <line x1=0 x2=100 y1=100 y2=0 />
+		        </svg>
+		        <svg class="checkbox" onclick="svgclick(this)" viewBox="0 0 100 100">
+		            <line x1=0 x2=100 y1=0 y2=100 />
+		            <line x1=0 x2=100 y1=100 y2=0 />
+		        </svg>
+		        <svg class="checkbox" onclick="svgclick(this)" viewBox="0 0 100 100">
+		            <line x1=0 x2=100 y1=0 y2=100 />
+		            <line x1=0 x2=100 y1=100 y2=0 />
+		        </svg>
+		    </div>
+		</template>
+		<script>
+			try {
+				const boardRowTemplate = document.getElementById("board_row_template")
+				const board = document.getElementById("board")
+				for (var i = 0; i < 3; i++) {
+					const row = document.importNode(boardRowTemplate.content, true)
+					board.appendChild(row)
+				}
+				
+				function svgclick(svgElem) {
+					if (svgElem.classList.contains("active")) {
+						svgElem.classList.remove("active")
+					} else {
+						svgElem.classList.add("active")
+					}
+					updateCheckedCount()
+					updateClickNumbers()
+				}
+				
+				function updateCheckedCount() {
+					const count = document.getElementById("checkedCount")
+					const checkedSvgs = document.querySelectorAll(".board svg.active")
+					count.innerHTML = `Checked: ${checkedSvgs.length}`
+				}
+				
+				var clickCount = 0
+				function updateClickNumbers() {
+					clickCount += 1
+					const clickCountElem = document.getElementById("clickCount")
+					clickCountElem.innerHTML = `Clicks: ${clickCount}`
+					
+					const randElem = document.getElementById("randomClick")
+					const rand = Math.floor(Math.random() * 100)
+					randElem.innerHTML = `Rand: ${rand}`
+				}
+				
+				const timeElem = document.getElementById("time")
+				var timePassed = 0
+				function updateTime() {
+					timePassed += 1
+					timeElem.innerHTML = `Time ${timePassed}`
+				}
+				setInterval(updateTime, 1000)
+			} catch (e) {
+				alert(e)
+			}
+		</script>
+	</body>
+</html>

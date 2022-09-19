@@ -1,0 +1,81 @@
+:root {
+    --color-space-gray: rgb(50, 53, 57);
+    --color-cloudy-gray: rgb(80, 85, 88);
+}
+
+body {
+    background-color: var(--color-space-gray);
+    width: 70vmin;
+    height: 100vmin;
+}
+
+#welcome {
+    position: absolute;
+    z-index: 1;
+    color: white;
+}
+
+.boardsquare {
+    position: relative;
+    top: 80px;
+    width: 100%;
+}
+
+.boardsquare::after {
+    display: block;
+    content: "";
+    padding-bottom: 100%;
+}
+
+.board {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: var(--color-cloudy-gray);
+}
+
+.board .row {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    height: 33%;
+}
+
+.board svg {
+    width: 33%;
+    margin: 5%;
+    padding: 3%;
+    background-color: var(--color-space-gray);
+}
+
+.board svg:active {
+    background-color: black;
+}
+
+.board svg line {
+    stroke-width: 3px;
+}
+
+.board svg.active line {
+    stroke: white;
+}
+
+#infopanel {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    max-width: 20%;
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    font-size: 20px;
+    text-align: center;
+    background-color: blue;
+    color: white;
+}
+
+#infopanel p {
+    margin: 5px;
+}
