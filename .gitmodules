@@ -1,0 +1,3 @@
+[submodule "public_html/arcade"]
+	path = public_html/arcade
+	url = https://github.com/skylon07/CS-260-partner
