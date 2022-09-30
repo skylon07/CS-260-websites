@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>City Finder</title>
+    </head>
+    <body>
+        <form>
+            Enter A Utah City: <input type="text" id="cityField" value=""><br>
+            Suggestion: <span id="txtHint">Empty</span>
+            <input id="weatherButton" type="submit" value="Submit">
+        </form>
+        <p>City</p>
+        <textarea id="displayCity">No City</textarea>
+        <p>Current Weather</p>
+        <div id="weather">No weather</div>
+        <script>
+            !(async () => {
+                document.getElementById("cityField").addEventListener("keyup", async (event) => {
+                    event.preventDefault()
+
+                    const cityDataQuery = document.getElementById('cityField').value
+                    if (cityDataQuery == "") {
+                        const txtHint = document.getElementById('txtHint')
+                        txtHint.textContent = "Empty"
+                        return
+                    }
+
+                    const cityDataUrl = `https://csonline.byu.edu/city?q=${cityDataQuery}`
+                    const cityDataResp = await fetch(cityDataUrl)
+                    const cityData = await cityDataResp.json()
+                    
+                    const allCities = document.createElement("ul")
+                    for (let i = 0; i < cityData.length; i += 1) {
+                        const cityName = cityData[i].city
+                        const cityElem = document.createElement("li")
+                        cityElem.appendChild(document.createTextNode(cityName))
+                        allCities.appendChild(cityElem)
+                    }
+    
+                    const txtHint = document.getElementById('txtHint')
+                    txtHint.textContent = ""
+                    txtHint.appendChild(allCities)
+                });
+            })()
+        </script>
+    </body>
+</html>
