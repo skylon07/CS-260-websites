@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dictionary</title>
+    </head>
+    <body>
+        <input id="wordprompt">
+        <button onclick="getWord()"">Submit</button>
+        <h2 id="word"></h2>
+        <p id="origin"></p>
+        <ul id="definitions"></ul>
+        <script>
+            const dictApiBase = "https://api.dictionaryapi.dev/api/v2/entries/en/"
+            let DATA = null
+
+            async function getWord() {
+                const word = document.getElementById('wordprompt').value
+                const resp = await fetch(dictApiBase + word)
+                const wordData = (await resp.json())[0]
+
+                const wordElem = document.getElementById("word")
+                const originElem = document.getElementById("origin")
+                const definitionsElem = document.getElementById("definitions")
+
+                wordElem.textContent = wordData.word
+                originElem.textContent = wordData.origin
+                definitionsElem.textContent = ""
+                for (const meaning of wordData.meanings) {
+                    const definitionElem = document.createElement("li")
+                    definitionElem.textContent = `${meaning.partOfSpeech}: ${meaning.definitions[0].definition}`
+                    definitionsElem.appendChild(definitionElem)
+                }
+            }
+        </script>
+    </body>
+</html>
