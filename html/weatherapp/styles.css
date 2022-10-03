@@ -87,7 +87,7 @@ body {
     width: 100%;
     height: 20%;
     margin-top: 5vh;
-    margin-bottom: 15vh;
+    margin-bottom: 5vh;
     color: rgb(var(--color-soft-white));
     white-space: nowrap;
 }
@@ -118,4 +118,9 @@ body {
 
 .temp .tempMinMax {
     font-family: sans-serif;
+}
+
+.footerLink {
+    margin: 50px;
+    color: rgb(95, 169, 255);
 }
