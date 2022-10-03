@@ -19,13 +19,13 @@ function alertOnErrCallback(callback, context) {
 
 
 async function fetchWeather(cityName) {
-    const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${cityName},US&units=imperial&APPID=591915043b1a48d778f9d7ce44e3a626`)
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName},US&units=imperial&APPID=591915043b1a48d778f9d7ce44e3a626`)
     const json = await response.json()
     return json
 }
 
 async function fetchForecast(cityName) {
-    const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${cityName},US&units=imperial&APPID=591915043b1a48d778f9d7ce44e3a626`)
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName},US&units=imperial&APPID=591915043b1a48d778f9d7ce44e3a626`)
     const json = await response.json()
     return json
 }
@@ -111,7 +111,7 @@ class Weather {
     }
 
     get iconSrc() {
-        return `http://openweathermap.org/img/w/${this.weather.icon}.png`
+        return `https://openweathermap.org/img/w/${this.weather.icon}.png`
     }
 
     get weatherType() {
