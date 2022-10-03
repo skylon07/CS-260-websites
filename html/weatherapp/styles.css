@@ -1,1 +1,121 @@
+:root {
+    --color-space-gray: 78, 82, 87;
+    --color-dull-blue: 68, 83, 98;
+    --color-deep-black: 5, 5, 8;
+    --color-soft-white: 240, 240, 240;
+}
 
+body {
+    margin: 0px;
+    width: 100vw;
+    background-color: rgb(var(--color-space-gray));
+}
+
+.shadow {
+    box-shadow: 0px 2px 10px 5px rgba(var(--color-deep-black), 0.5);
+}
+
+#cityHeader {
+    margin: 30px;
+    color: rgb(var(--color-soft-white));
+    font-size: 300%;
+}
+
+#cityInput {
+    margin-left: 45px;
+    padding: 10px;
+    border: 1px solid rgba(var(--color-deep-black), 1.0);
+    border-radius: 10px;
+    background-color: rgba(var(--color-deep-black), 0.2);
+    color: rgba(var(--color-soft-white), 0.85);
+}
+
+#cityInput::placeholder {
+    color: rgba(var(--color-soft-white), 0.5);
+}
+
+#citySubmit {
+    margin-left: 20px;
+    border: 1px solid rgba(var(--color-deep-black), 1.0);
+    border-radius: 10px;
+    padding: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: rgba(var(--color-deep-black), 0.2);
+    color: rgba(var(--color-soft-white), 0.85);
+}
+
+#hourForecastContainer {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    padding: 4vw;
+    width: 100%;
+    height: 35%;
+    box-sizing: border-box;
+    color: rgb(var(--color-soft-white));
+    white-space: nowrap;
+}
+
+.hourForecastShadow {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(var(--color-dull-blue));
+    color: rgb(var(--color-soft-white));
+    white-space: nowrap;
+}
+
+.hourForecastBox {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: 2vw;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 15vw;
+    font-size: 2vw;
+}
+
+#weekForecastContainer {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 20%;
+    margin-top: 5vh;
+    margin-bottom: 15vh;
+    color: rgb(var(--color-soft-white));
+    white-space: nowrap;
+}
+
+.weekForecastBox {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    width: 10vw;
+    background-color: rgb(var(--color-dull-blue));
+    font-size: 1vw;
+}
+
+.time .date {
+    font-family: sans-serif;
+}
+
+.weatherDesc {
+    font-style: italic;
+}
+
+.icon {
+    width: 80%;
+}
+
+.temp .tempMinMax {
+    font-family: sans-serif;
+}
