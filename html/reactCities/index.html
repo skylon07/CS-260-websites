@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        try {
+            function alertOnError(context, fn, ...args) {
+                try {
+                    const result = fn(...args)
+                    if (result instanceof Promise) {
+                        result.catch((e) => {
+                            alert(`Error (async) in ${context}: ${e}`)
+                            console.error(`Error (async) in ${context}: ${e}`)
+                        })
+                    }
+                    return result
+                } catch (e) {
+                    alert(`Error in ${context}: ${e}`)
+                    console.error(`Error in ${context}: ${e}`)
+                }
+            }
+            function alertOnErrorCallback(context, fn) {
+                return (...args) => alertOnError(context, fn, ...args)
+            }
+
+            const CityForm = alertOnErrorCallback('CityForm', (props) => {
+                const [value, setValue] = React.useState("")
+                const [cities, setCities] = React.useState([
+                    {city: "Provo"},
+                    {city: "Lindon"},
+                ])
+
+                const inputRef = React.createRef()
+
+                const recordInput = alertOnErrorCallback('CityForm.recordInput', (event) => {
+                    const newValue = inputRef.current.value
+                    setValue(newValue)
+                })
+                const submit = alertOnErrorCallback('CityForm.submit', async (event) => {
+                    event.preventDefault()
+
+                    const url = `https://csonline.byu.edu/city?q=${value}`
+                    const data = await fetch(url)
+                    const json = await data.json()
+                    setCities(json)
+                })
+
+                const cityElems = cities.map((city) => {
+                    const cityName = city.city
+                    return <li key={cityName}>{cityName}</li>
+                })
+
+                return <div>
+                    <form onSubmit={submit} onKeyUp={(event) => { recordInput(event); submit(event) }}>
+                        <label>
+                            Name:
+                            <input ref={inputRef} type="text" value={value} onChange={recordInput} />
+                        </label>
+                        <input type="submit" value="Submit" />
+                        <ul>{cityElems}</ul>
+                    </form>
+                </div>
+            })
+    
+            class CityForm_Class extends React.Component {
+                constructor(props) {
+                    super(props);
+                    this.state = { value: '' };
+    
+                    this.handleChange = this.handleChange.bind(this);
+                    this.handleSubmit = this.handleSubmit.bind(this);
+                }
+    
+                handleChange(event) {
+                    alert('A name was changed: ' + event.target.value);
+                    this.setState({ value: event.target.value });
+                }
+    
+                async handleSubmit(event) {
+                    // alert('A name was submitted: ' + this.state.value);
+                    // event.preventDefault();
+
+                    event.preventDefault()
+
+                    const url = `https://csonline.byu.edu/city?q=${this.state.value}`
+                    const data = await fetch(url)
+                    const json = await data.json()
+                    setCities(json)
+                }
+    
+                render() {
+                    return (
+                        <div>
+                            <form onSubmit={this.handleSubmit} onKeyUp={this.handleChange}>
+                                <label>
+                                    Name:
+                                    <input type="text" value={this.state.value} onChange={this.handleChange} />
+                                </label>
+                                <input type="submit" value="Submit" />
+                            </form>
+                        </div>
+                    );
+                }
+            }
+    
+            const root = ReactDOM.createRoot(document.getElementById('root'));
+            root.render(<CityForm />);
+        } catch (e) {
+            alert(`ERROR: ${e}`)
+        }
+    </script>
+</body>
+
+</html>
