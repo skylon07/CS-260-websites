@@ -21,8 +21,16 @@ function alertOnErrorCallback(context, fn) {
     return (...args) => alertOnError(context, fn, ...args)
 }
 
-function Component(fn) {
-    globalThis[fn.name] = alertOnErrorCallback(`Component ${fn.name}`, fn)
+function randInt(low, high) {
+    if (low > high) {
+        const tempLow = low
+        low = high
+        high = tempLow
+    }
+
+    const randPercent = Math.random()
+    const randRange = high - low
+    return Math.floor(randPercent * randRange) + low
 }
 
 class XKCD {
@@ -39,6 +47,10 @@ class XKCD {
         const response = await axios.get(comicUrl)
         return response
     })}
+}
+
+function Component(fn) {
+    globalThis[fn.name] = alertOnErrorCallback(`Component ${fn.name}`, fn)
 }
 
 function useAsyncEffect(asyncCallback, deps) {
@@ -117,6 +129,37 @@ Component(function Root() {
         })
     }
 
+    async function loadRandComic() {
+        setByAsync(setComic, async (prevComic) => {
+            const newNum = randInt(1, latestComicNum + 1)
+            console.log(randInt(1, 5))
+            console.log(randInt(1, 5))
+            console.log(randInt(1, 5))
+            console.log(randInt(1, 5))
+            console.log(randInt(1, 5))
+            console.log(randInt(1, 5))
+            console.log(randInt(1, 5))
+            console.log(randInt(1, 5))
+            console.log(randInt(1, 5))
+            console.log(randInt(1, 5))
+            console.log(randInt(1, 5))
+            console.log(randInt(1, 5))
+            console.log(randInt(1, 5))
+            console.log(randInt(1, 5))
+            console.log(randInt(1, 5))
+            console.log(randInt(1, 5))
+            console.log(randInt(1, 5))
+            console.log(randInt(1, 5))
+            console.log(randInt(1, 5))
+            console.log(randInt(1, 5))
+            console.log(randInt(1, 5))
+            console.log(randInt(1, 5))
+            console.log(randInt(1, 5))
+            const newComic_response = await getComic(newNum)
+            return newComic_response.data
+        })
+    }
+
     async function loadNextComic() {
         setByAsync(setComic, async (prevComic) => {
             let newComic_response
@@ -152,6 +195,7 @@ Component(function Root() {
                 <p>{comic.alt}</p>
                 <button onClick={loadFirstComic}>First</button>
                 <button onClick={loadPrevComic}>Previous</button>
+                <button onClick={loadRandComic}>Random</button>
                 <button onClick={loadNextComic}>Next</button>
                 <button onClick={loadLatestComic}>Latest</button>
             </div>
