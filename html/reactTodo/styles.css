@@ -1,0 +1,8 @@
+.Task {
+    cursor: pointer;
+    user-select: none;
+}
+
+.Task.done {
+    text-decoration: line-through;
+}
