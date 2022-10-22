@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/CS260/html/react-cities-build/static/css/main.073c9b0a.css",
+    "main.js": "/CS260/html/react-cities-build/static/js/main.acbcb4b6.js",
+    "static/js/787.1d0766d6.chunk.js": "/CS260/html/react-cities-build/static/js/787.1d0766d6.chunk.js",
+    "index.html": "/CS260/html/react-cities-build/index.html",
+    "main.073c9b0a.css.map": "/CS260/html/react-cities-build/static/css/main.073c9b0a.css.map",
+    "main.acbcb4b6.js.map": "/CS260/html/react-cities-build/static/js/main.acbcb4b6.js.map",
+    "787.1d0766d6.chunk.js.map": "/CS260/html/react-cities-build/static/js/787.1d0766d6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.acbcb4b6.js"
+  ]
+}
