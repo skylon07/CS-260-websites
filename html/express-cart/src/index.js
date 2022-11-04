@@ -7,9 +7,9 @@ import axios from 'axios'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>
 )
 
 // If you want to start measuring performance in your app, pass a function
@@ -18,4 +18,11 @@ root.render(
 reportWebVitals()
 
 const port = 27634
-axios.defaults.baseURL = `http://localhost:${port}`
+if (process.env.NODE_ENV === "production") {
+    console.log("Using production URL...")
+    axios.defaults.baseURL = `http://thedelta.stream`
+    axios.port = port
+} else if (process.env.NODE_ENV === "development") {
+    console.log("Using development URL...")
+    axios.defaults.baseURL = `http://localhost:${port}`
+}
