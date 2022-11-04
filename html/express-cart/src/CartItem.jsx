@@ -26,7 +26,7 @@ function useFetchableCartItemProduct(cartItem) {
     const [product, setProduct] = useState(null)
     
     useAsyncEffect(async () => {
-        const response = await axios.get(`/api/products/${cartItem.productId}`)
+        const response = await axios.get(`/express-cart-api/products/${cartItem.productId}`)
         const product = response.data
         setProduct(product)
     }, [])

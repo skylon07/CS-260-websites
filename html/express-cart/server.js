@@ -26,7 +26,7 @@ class Database {
         const products = require("./server-resources/products")
 
         for (const product of products) {
-            const response = await axios.post(`/api/products`, product)
+            const response = await axios.post(`/express-cart-api/products`, product)
             if (response.status !== 200) {
                 console.log(`Error adding ${product.name}, code ${response.status}`)
             }
@@ -110,42 +110,42 @@ class CartItem {
     }
 }
 
-app.get('/api/products', (request, response) => {
+app.get('/express-cart-api/products', (request, response) => {
     response.send(database.getProducts())
 })
-app.post('/api/products', (request, response) => {
+app.post('/express-cart-api/products', (request, response) => {
     const newProduct = new Product(request.body.name, request.body.price)
     database.addProduct(newProduct)
     response.send(newProduct)
 })
 
-app.get('/api/products/:id', (request, response) => {
+app.get('/express-cart-api/products/:id', (request, response) => {
     const id = parseInt(request.params.id)
     const product = database.getProductById(id)
     response.send(product)
 })
-app.delete('/api/products/:id', (request, response) => {
+app.delete('/express-cart-api/products/:id', (request, response) => {
     const id = parseInt(request.params.id);
     database.deleteProduct(id)
     response.sendStatus(200);
 })
 
-app.get('/api/cart', (request, response) => {
+app.get('/express-cart-api/cart', (request, response) => {
     response.send(database.getCart())
 })
 
-app.post('/api/cart/:id', (request, response) => {
+app.post('/express-cart-api/cart/:id', (request, response) => {
     const id = parseInt(request.params.id)
     database.addProductToCart(id)
     response.sendStatus(200)
 })
-app.delete('/api/cart/:id', (request, response) => {
+app.delete('/express-cart-api/cart/:id', (request, response) => {
     const id = parseInt(request.params.id)
     database.removeProductFromCart(id)
     response.sendStatus(200)
 })
 
-app.put('/api/cart/:id/:quantity', (request, response) => {
+app.put('/express-cart-api/cart/:id/:quantity', (request, response) => {
     const id = parseInt(request.params.id)
     const quantity = parseInt(request.params.quantity)
     const cartItem = database.setQuantity(id, quantity)
