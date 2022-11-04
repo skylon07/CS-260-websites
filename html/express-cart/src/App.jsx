@@ -3,7 +3,7 @@ import axios from 'axios'
 
 import Product from './Product'
 import CartItem from './CartItem'
-import { baseUrl, useAsyncEffect } from './shared'
+import { useAsyncEffect } from './shared'
 
 import './App.css'
 
@@ -49,7 +49,7 @@ function useFetchableProducts() {
     const [products, setProducts] = useState([])
     
     useAsyncEffect(async () => {
-        const response = await axios.get(`${baseUrl}/api/products`)
+        const response = await axios.get(`/api/products`)
         const products = response.data
         setProducts(products)
     }, [])
@@ -64,24 +64,24 @@ function useFetchableCartItems() {
     const [cartItems, setCartItems] = useState([])
 
     useAsyncEffect(async () => {
-        const response = await axios.get(`${baseUrl}/api/cart`)
+        const response = await axios.get(`/api/cart`)
         const cartItems = response.data
         setCartItems(cartItems)
     }, [pushCount])
 
     const addProductToCart = async (product) => {
-        await axios.post(`${baseUrl}/api/cart/${product.id}`)
+        await axios.post(`/api/cart/${product.id}`)
         incrememtPushCount()
     }
 
     const changeQuantity = async (cartItem, newQuantityFn) => {
         const newQuantity = newQuantityFn(cartItem.quantity)
-        await axios.put(`${baseUrl}/api/cart/${cartItem.productId}/${newQuantity}`)
+        await axios.put(`/api/cart/${cartItem.productId}/${newQuantity}`)
         incrememtPushCount()
     }
 
     const removeCartItem = async (cartItem) => {
-        await axios.delete(`${baseUrl}/api/cart/${cartItem.productId}`)
+        await axios.delete(`/api/cart/${cartItem.productId}`)
         incrememtPushCount()
     }
 

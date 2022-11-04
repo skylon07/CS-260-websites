@@ -8,7 +8,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use((request, response, next) => {
     response.header("Access-Control-Allow-Origin", "*")
-    response.header("Access-Control-Allow-Methods", "POST, GET, DELETE")
+    response.header("Access-Control-Allow-Methods", "POST, PUT, GET, DELETE")
     response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
     next()
 })
@@ -26,7 +26,7 @@ class Database {
         const products = require("./server-resources/products")
 
         for (const product of products) {
-            const response = await axios.post(`${baseUrl}/api/products`, product)
+            const response = await axios.post(`/api/products`, product)
             if (response.status !== 200) {
                 console.log(`Error adding ${product.name}, code ${response.status}`)
             }
@@ -158,8 +158,8 @@ app.put('/api/cart/:id/:quantity', (request, response) => {
 })
 
 const portArg = parseInt(argv[2])
-const portDefault = 3001
+const portDefault = 27634
 const port = portArg || portDefault
 app.listen(port, () => console.log(`Server listening on port ${port}`))
 
-const baseUrl = `http://localhost:${port}`
+axios.defaults.baseURL = `http://localhost:${port}`

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 
-import { baseUrl, useAsyncEffect } from './shared'
+import { useAsyncEffect } from './shared'
 
 import './CartItem.css'
 
@@ -26,7 +26,7 @@ function useFetchableCartItemProduct(cartItem) {
     const [product, setProduct] = useState(null)
     
     useAsyncEffect(async () => {
-        const response = await axios.get(`${baseUrl}/api/products/${cartItem.productId}`)
+        const response = await axios.get(`/api/products/${cartItem.productId}`)
         const product = response.data
         setProduct(product)
     }, [])
