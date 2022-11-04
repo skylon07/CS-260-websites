@@ -17,12 +17,14 @@ root.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals()
 
-const port = 27634
 if (process.env.NODE_ENV === "production") {
     console.log("Using production URL...")
-    axios.defaults.baseURL = `https://thedelta.stream`
-    axios.port = port
+
+    const proxyPort = 27633
+    axios.defaults.baseURL = `http://thedelta.stream:${proxyPort}`
 } else if (process.env.NODE_ENV === "development") {
     console.log("Using development URL...")
+    
+    const port = 27634
     axios.defaults.baseURL = `http://localhost:${port}`
 }
