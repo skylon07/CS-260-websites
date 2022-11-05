@@ -20,8 +20,7 @@ reportWebVitals()
 if (process.env.NODE_ENV === "production") {
     console.log("Using production URL...")
 
-    const proxyPort = 27633
-    axios.defaults.baseURL = `http://thedelta.stream:${proxyPort}`
+    axios.defaults.baseURL = `https://thedelta.stream`
 } else if (process.env.NODE_ENV === "development") {
     console.log("Using development URL...")
     
